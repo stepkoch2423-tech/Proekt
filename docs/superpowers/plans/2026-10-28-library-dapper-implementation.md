@@ -25,7 +25,7 @@
 ### Task 1: Scaffold the solution and prove pure domain behavior with TDD
 
 **Files:**
-- Create: `LibraryDapper.sln`
+- Create: `LibraryDapper.slnx`
 - Create: `src/LibraryDapper/LibraryDapper.csproj`
 - Create: `src/LibraryDapper/Models/Author.cs`
 - Create: `src/LibraryDapper/Models/Book.cs`
