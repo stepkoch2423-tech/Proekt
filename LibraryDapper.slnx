@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LibraryDapper/LibraryDapper.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/LibraryDapper.Tests/LibraryDapper.Tests.csproj" />
+  </Folder>
+</Solution>
