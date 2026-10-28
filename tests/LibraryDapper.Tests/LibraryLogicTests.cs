@@ -1,5 +1,7 @@
+using Dapper;
 using LibraryDapper.Logic;
 using LibraryDapper.Models;
+using Microsoft.Data.Sqlite;
 
 namespace LibraryDapper.Tests;
 
@@ -49,5 +51,19 @@ public class LibraryLogicTests
 
         Assert.Single(result.Genres);
         Assert.Single(genres.Single().Books);
+    }
+
+    [Fact]
+    public async Task Dapper_maps_snake_case_author_id_for_repository_models()
+    {
+        _ = new LibraryRepository("Host=unused");
+        await using var connection = new SqliteConnection("Data Source=:memory:");
+        await connection.OpenAsync();
+
+        var book = await connection.QuerySingleAsync<Book>("""
+            SELECT 1 AS id, 'Test title' AS title, 2024 AS year, 42 AS author_id;
+            """);
+
+        Assert.Equal(42, book.AuthorId);
     }
 }

@@ -9,6 +9,11 @@ public class LibraryRepository
 {
     private readonly string _cs;
 
+    static LibraryRepository()
+    {
+        DefaultTypeMap.MatchNamesWithUnderscores = true;
+    }
+
     public LibraryRepository(string connectionString) => _cs = connectionString;
 
     private NpgsqlConnection Conn() => new(_cs);
