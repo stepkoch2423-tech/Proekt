@@ -41,6 +41,7 @@ public class LibraryRepository
         const string sql = """
             INSERT INTO genres (name)
             VALUES (@Name)
+            ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name
             RETURNING id;
             """;
         return await c.ExecuteScalarAsync<int>(sql, genre);
